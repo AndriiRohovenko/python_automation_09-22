@@ -1,3 +1,6 @@
+from typing import List
+
+
 with open("./data.txt", "r") as file:
     lines = file.readlines()
 
@@ -18,11 +21,9 @@ with open("./data.txt", "r") as file:
 # region task
 def make_operation(line: str) -> int:
     cleaned_line = line.strip()
-    elements = cleaned_line.split(',')
-    
-    left_operand, operator, right_operand = (
-        [int(el) for el in elements]
-    )
+    elements = cleaned_line.split(",")
+
+    left_operand, operator, right_operand = [int(el) for el in elements]
 
     if operator == 1:
         result = left_operand + right_operand
@@ -36,7 +37,7 @@ def make_operation(line: str) -> int:
     return result
 
 
-results: int = []
+results: List[int] = []
 
 
 for line in lines:
@@ -45,4 +46,3 @@ for line in lines:
 
 with open("./results.txt", "w") as file:
     file.write("\n".join(f"{n}" for n in results))
-

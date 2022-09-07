@@ -9,9 +9,7 @@ with open("./binary_example/data.txt", "wb") as file:
     # file.write(numbers) # error will occured
 
     # solution using pickle module
-    file.write(
-        pickle.dumps(numbers)
-    )
+    file.write(pickle.dumps(numbers))
 
     # from scratch solution
 

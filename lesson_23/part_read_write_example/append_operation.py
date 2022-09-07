@@ -1,4 +1,3 @@
-
 names = ["John Dow", "Marta Stuard", "Jane Dow", "John Johns"]
 
 for name in names:

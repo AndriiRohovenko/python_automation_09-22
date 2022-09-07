@@ -8,6 +8,8 @@ with open("users.csv", "r") as csv_file:
 
 users_data = {}
 users_data["headers"] = csv_lines.pop(0)
-users_data["data"] = csv_lines
+users_data["data"]= csv_lines
+
+print(users_data)
 
 users: List[User] = User.from_csv(users_data)

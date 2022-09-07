@@ -7,7 +7,6 @@
 #     )
 
 
-
 # read bytes from file and convert back to structure
 with open("./data_new.txt", "rb") as file:
     bytes = file.read()
