@@ -1,7 +1,7 @@
 from typing import List
 
 
-with open("./data.txt", "r") as file:
+with open("data.txt", "r") as file:
     lines = file.readlines()
 
 
@@ -23,7 +23,7 @@ def make_operation(line: str) -> int:
     cleaned_line = line.strip()
     elements = cleaned_line.split(",")
 
-    left_operand, operator, right_operand = [int(el) for el in elements]
+    left_operand, operator, right_operand = (int(el) for el in elements)
 
     if operator == 1:
         result = left_operand + right_operand

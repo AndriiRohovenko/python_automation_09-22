@@ -2,14 +2,11 @@ from typing import List
 from user import User
 
 
-with open("users.csv", "r") as csv_file:
-    csv_lines = csv_file.readlines()
+with open("users.csv", "r") as csv_file: 
+    for user in User.from_csv(csv_file.read()):
+        xml_file_name = (
+            f"{user.first_name.lower()}_{user.last_name.lower()}.xml"
+        )
 
-
-users_data = {}
-users_data["headers"] = csv_lines.pop(0)
-users_data["data"]= csv_lines
-
-print(users_data)
-
-users: List[User] = User.from_csv(users_data)
+        with open(xml_file_name, "w") as xml_file:
+            xml_file.write(user.to_xml())

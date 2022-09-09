@@ -1,7 +1,8 @@
 from __future__ import annotations
 
-from typing import Dict, List
-from .gender import Gender
+from typing import List
+
+from gender import Gender
 
 
 class User:
@@ -14,17 +15,41 @@ class User:
         self.__gender = gender
 
     @classmethod
-    def from_csv(cls, csv_data: Dict[str, List[str]]) -> List[User]:
-        ...
-        # Mast have
-        # TODO: add implementation to parce data from csv data dict and set all fields
+    def from_csv(cls, csv_data: str) -> List[User]:
+        csv_rows = csv_data.split("\n")
+        headers, rows = csv_rows.pop(0), csv_rows
+        
+        users = []
+        
+        for row in rows:
+            users.append(cls(*(row.split(","))))
 
-    # TODO: implement __add__ method
-    # TODO: implement __sub__ method
-    # TODO: implement __str__ method:
-    # {
-    #     "first_name": "John",
-    #     "last_name": "Dow",
-    #     "email": "john.dow@gmail.com",
-    #     "gender": "MALE"
-    # }
+        return users
+
+    def to_xml(self) -> str:
+        xml_metadata = '<?xml version="1.0" encoding="UTF-8"?>'
+        info = ""
+
+        for key, value in self.__dict__.items():
+            node_name = self.__get_public_name(key)
+            info += f"<{node_name}>{value}</{node_name}>"
+        
+        data = f"<data>{info}</data>"
+        
+        return f"{xml_metadata}\n{data}"
+
+    def __get_public_name(self, private_name: str) -> str:
+        prefix = f"_{self.__class__.__name__}__"
+
+        if private_name.startswith(prefix):
+            return private_name.replace(prefix, "")
+        else:
+            return private_name
+
+    @property
+    def first_name(self):
+        return self.__first_name
+
+    @property
+    def last_name(self):
+        return self.__last_name
