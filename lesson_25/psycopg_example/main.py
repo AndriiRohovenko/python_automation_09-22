@@ -1,4 +1,4 @@
-from psycopg_example.connection import Connection
+from connection import Connection
 
 
 connection = Connection()
