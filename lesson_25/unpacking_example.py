@@ -1,12 +1,6 @@
 from __future__ import annotations
 
 
-john = {
-    "name": "John Dow",
-    "age": 12
-}
-
-
 class Human:
     def __init__(
         self,
@@ -20,3 +14,15 @@ class Human:
     def from_dict(cls, data: dict) -> Human:
         return cls(**data)
 
+    def __str__(self):
+        return f"{self.__name} | {self.__age}"
+
+
+john = Human.from_dict(
+    {
+        "name": "John Dow",
+        "age": 12
+    }
+)
+
+print(john)
