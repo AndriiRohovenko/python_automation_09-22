@@ -8,3 +8,6 @@
 
 # Related projects
 * WIP
+
+# Additional lessons
+* [Aditional lessons](./additional/README.md)
