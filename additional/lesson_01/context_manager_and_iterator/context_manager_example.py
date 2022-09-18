@@ -29,13 +29,3 @@ class Human:
     def __exit__(self, *args) -> None:
         if not self.__write_stream.closed:
             self.__write_stream.close()
-
-
-    # TODO: add examples with super
-    # def __getattribute__(self, __name: str) -> Any:
-    #     if __name not in super(self.__class__).__dict__:
-    #         raise AttributeError(f"{__name} is not exist...")
-    #     return self.__dict__[__name]
-
-    # def __getattr__(self, name: str) -> Any:
-    #     print(name)
