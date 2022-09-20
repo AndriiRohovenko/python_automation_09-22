@@ -19,6 +19,13 @@
 * Adapter - pattern to covnert one format to another
 
 # Specific operators
-* >>
+* \>\>
 * <<
 * := - you will love it
+
+# Poetry package manager
+* install poetry from console
+* initialize project with poetry
+* add new packages with poetry
+* remove packages in poetry
+* activate virtual environment for project
